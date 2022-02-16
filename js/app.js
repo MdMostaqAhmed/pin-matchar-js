@@ -6,8 +6,24 @@ function getPin(){
     } else{
         return getPin();
     }
-}
+};
+
 function generatePin() {
     const pin = getPin();
     document.getElementById('display-pin').value = pin;
-}
+};
+
+document.getElementById('key-pad').addEventListener('click', function(event){
+    const number = event.target.innerText;
+    const calcInput = document.getElementById('typed-numbers');
+    if (isNaN(number)) {
+        if(number == 'C'){
+            calcInput.value = "";
+        }
+    } 
+    else {
+    const previousNUmber = calcInput.value;
+    const newNumber = previousNUmber + number;
+    calcInput.value = newNumber;
+    }
+});
